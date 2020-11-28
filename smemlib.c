@@ -1,7 +1,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "smemlib.h"
 
 // Define a name for your shared memory; you can give any name that start with a slash character; it will be like a filename.
 
@@ -9,8 +8,7 @@
 
 // Define your stuctures and variables. 
 
-
-int smem_init()
+int smem_initx()
 {
     printf ("smem init called"); // remove all printfs when you are submitting to us.  
     return (0); 
