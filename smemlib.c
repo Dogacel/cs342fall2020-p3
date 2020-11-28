@@ -8,7 +8,7 @@
 
 // Define your stuctures and variables. 
 
-int smem_initx()
+int smem_init()
 {
     printf ("smem init called"); // remove all printfs when you are submitting to us.  
     return (0); 
