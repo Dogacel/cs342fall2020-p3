@@ -7,11 +7,7 @@
 
 int main()
 {
-
-
-    mem_create_segment(); 
-    
-
+    smem_init(); 
 
     return (0); 
 }
