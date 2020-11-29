@@ -20,6 +20,12 @@ int smem_remove()
     return (0); 
 }
 
+int smem_open()
+{
+
+    return (0); 
+}
+
 
 void *smem_alloc (int size)
 {
@@ -33,4 +39,8 @@ void smem_free (void *p)
  
 }
 
-
+int smem_close()
+{
+    
+    return (0); 
+}
