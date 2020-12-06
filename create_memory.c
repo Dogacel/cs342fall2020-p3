@@ -1,18 +1,15 @@
 
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include "smemlib.h"
 
-int main()
-{
-    
-    smem_init(); 
+int main() {
+    smem_init(1024);
 
-    printf ("memory segment is removed from the system. System is clean now.\n");
-    printf ("you can no longer run processes to allocate memory using the library\n"); 
+    printf("Memory segment is created.\n");
 
-    return (0); 
+    return (0);
 }
