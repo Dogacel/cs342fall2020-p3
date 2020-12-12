@@ -5,26 +5,33 @@
 
 #include "smemlib.h"
 
-int main() {
-    int i, ret;
-    char *p;
+int main(int argc, char** argv) {
+    int ret;
+    char* p;
 
-    ret = smem_open();
-    if (ret == -1)
-        exit(1);
+    for (int i = 0; i < argv[1][0] - '0'; i++) {
+        int pid = fork();
+        if (pid != 0) {
+            ret = smem_open();
+            if (ret == -1)
+                exit(1);
 
-    p = smem_alloc(8);
-    p = smem_alloc(16);
-    p = smem_alloc(16);
+            p = smem_alloc(8);
+            p = smem_alloc(16);
 
-    smem_free(p);
-    p = smem_alloc(1024);  // allocate space to hold 1024 characters
+            char* old_p = smem_alloc(16);
+            p = smem_alloc(16);
+            smem_free(old_p);
+            p = smem_alloc(16);
 
-    for (i = 0; i < 1024; ++i)
-        p[i] = 'a';  // init all chars to ‘a’
-    smem_free(p);
+            p = smem_alloc(512);  // allocate space to hold 1024 characters
 
-    smem_close();
+            smem_free(p);
+
+            smem_close();
+            return 0;
+        }
+    }
 
     return (0);
 }
